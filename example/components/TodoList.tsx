@@ -3,6 +3,7 @@ import { useStore } from '../../library/index';
 import { store } from '../store';
 import { toggleTodo, removeTodo, updateTodo, toggleAllTodos, clearCompletedTodos } from '../store/todo.slice';
 import { TodoState } from '../types';
+import '../slyles/TodoList.css';
 
 export const TodoList: FC = () => {
     const { todos } = useStore<TodoState>(store);
@@ -39,34 +40,33 @@ export const TodoList: FC = () => {
     };
 
     return (
-        <div className="space-y-4">
-            {todos.length === 0 ? <></> : <>
-                <div className="flex items-center justify-between px-2  border-b p-3.5">
-                    <div className="flex items-center">
-                        <input
-                            type="checkbox"
-                            checked={allCompleted}
-                            onChange={() => toggleAllTodos(!allCompleted)}
-                            className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
-                        />
-                        <span className="ml-2 text-sm text-gray-600">Select all</span>
-                    </div>
-                    <button
-                        onClick={clearCompletedTodos}
-                        className="px-3 py-1 text-sm text-red-600 hover:text-red-800 border border-red-200 rounded"
-                    >
-                        Clear completed
-                    </button>
-                </div>
-
-
-
-                <ul className="space-y-2">
-                    {filteredTodos.map(todo => (
-                        <li
-                            key={todo.id}
-                            className="flex items-start gap-2 p-2 hover:bg-gray-50 rounded"
+        <div className="todo-container">
+            {todos.length === 0 ? null : (
+                <>
+                    <div className="controls-panel">
+                        <div className="select-all-container">
+                            <input
+                                type="checkbox"
+                                checked={allCompleted}
+                                onChange={() => toggleAllTodos(!allCompleted)}
+                                className="select-all-checkbox"
+                            />
+                            <span className="select-all-label">Select all</span>
+                        </div>
+                        <button
+                            onClick={clearCompletedTodos}
+                            className="clear-completed-btn"
                         >
+                            Clear completed
+                        </button>
+                    </div>
+
+                    <ul className="todos-list">
+                        {filteredTodos.map(todo => (
+                            <li
+                                key={todo.id}
+                                className="todo-item"
+                            >
                             <input
                                 type="checkbox"
                                 checked={todo.completed}
@@ -100,36 +100,33 @@ export const TodoList: FC = () => {
                                         onClick={() => handleEditStart(todo)}
                                         className="px-2 py-1 text-sm text-blue-600 hover:text-blue-800"
                                     >
-                                        Edit
+                                        <img src="../../public/free-icon-write-3980797.png" alt=""  className='trash-bin'/>
                                     </button>
                                 )}
                                 <button
                                     onClick={() => removeTodo(todo.id)}
                                     className="px-2 py-1 text-sm text-red-600 hover:text-red-800"
                                 >
-                                    Delete
+                                    <img src="../../public/free-icon-trash-bin-7267149.png" alt=""  className='trash-bin'/>
                                 </button>
                             </div>
 
-                        </li>
-                    ))}
-                </ul>
-                <div className="flex border-t p-3.5 justify-between">
-                    {(['all', 'active', 'completed'] as const).map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setFilter(tab)}
-                            className={`px-4 py-2 text-sm font-medium ${filter === tab
-                                    ? 'text-blue-600 border-b-2 border-blue-600'
-                                    : 'text-gray-500 hover:text-gray-700'
-                                }`}
-                        >
-                            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                        </button>
-                    ))}
-                </div>
-            </>
-            }
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="filters-panel">
+                        {(['all', 'active', 'completed'] as const).map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setFilter(tab)}
+                                className={`filter-btn ${filter === tab ? 'active' : ''}`}
+                            >
+                                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                            </button>
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 };
