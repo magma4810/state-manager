@@ -4,6 +4,8 @@ import { store } from '../store';
 import { toggleTodo, removeTodo, updateTodo, toggleAllTodos, clearCompletedTodos } from '../store/todo.slice';
 import { TodoState } from '../types';
 import '../slyles/TodoList.css';
+import trashIcon from '../../public/free-icon-trash-bin-7267149.png';
+import writeIcon from "../../public/free-icon-write-3980797.png";
 
 export const TodoList: FC = () => {
     const { todos } = useStore<TodoState>(store);
@@ -100,14 +102,14 @@ export const TodoList: FC = () => {
                                         onClick={() => handleEditStart(todo)}
                                         className="px-2 py-1 text-sm text-blue-600 hover:text-blue-800"
                                     >
-                                        <img src="../../public/free-icon-write-3980797.png" alt=""  className='trash-bin'/>
+                                        <img src={writeIcon} alt=""  className='trash-bin'/>
                                     </button>
                                 )}
                                 <button
                                     onClick={() => removeTodo(todo.id)}
                                     className="px-2 py-1 text-sm text-red-600 hover:text-red-800"
                                 >
-                                    <img src="../../public/free-icon-trash-bin-7267149.png" alt=""  className='trash-bin'/>
+                                    <img src={trashIcon} alt=""  className='trash-bin'/>
                                 </button>
                             </div>
 
