@@ -1,54 +1,47 @@
-# React + TypeScript + Vite
+# [Todo List with Custom State Manager 🚀](https://state-manager-seven.vercel.app/)
+Простой и эффективный менеджер состояния + пример приложения Todo List. Идеально подходит для изучения принципов управления состоянием в React-приложениях.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://state-manager-seven.vercel.app/)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.8%2B-blue?style=flat-square)
+![React](https://img.shields.io/badge/React-18%2B-61DAFB?style=flat-square&logo=react)
 
-Currently, two official plugins are available:
+## 🚀 Быстрый старт
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/your-username/todo-state-manager.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Установите зависимости:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Запустите приложение:
+
+```bash
+npm run dev
+```
+
+## 🌟 Особенности
+
+### State Manager
+- 🧩 Простая и легковесная реализация (~2KB)
+- ⚡ Реактивные обновления компонентов
+- 🔒 Строгая типизация с TypeScript
+
+### Todo List
+- ✅ Добавление/удаление задач
+- ✏️ Редактирование текста задач
+- 🗂 Фильтрация: Все/Активные/Выполненные
+- 🎯 Массовые операции: выделить все/очистить выполненные
+- 💅 Адаптивный дизайн с Tailwind CSS
+
+## 🛠 Технологии
+
+- **Core**: React 18, TypeScript 4.8+
+- **State**: Custom state manager
+- **Styling**: Tailwind CSS 3
+- **Build**: Vite 4
+
