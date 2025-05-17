@@ -9,7 +9,7 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/your-username/todo-state-manager.git
+git clone https://github.com/magma4810/state-manager.git
 ```
 
 2. Установите зависимости:
